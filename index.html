@@ -26,8 +26,9 @@
 
     <div class="w-full max-w-md sm:max-w-xl bg-white border border-zinc-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_18px_40px_rgba(0,0,0,0.06)] relative">
         
+        <!-- Logo Yazısı (Düzeltildi: Sadece kelimeler arası boşluk var, harfler bitişik ve tok) -->
         <div class="flex justify-center items-center mb-4 sm:mb-5">
-            <span class="text-xs font-black tracking-[0.25em] text-zinc-800 uppercase">CAN STUDIO</span>
+            <span class="text-xs font-black tracking-normal text-zinc-800 uppercase" style="word-spacing: 0.3em;">CAN STUDIO</span>
         </div>
 
         <div class="text-center mb-5 sm:mb-6">
@@ -248,7 +249,6 @@
             showToast("Dönüştürme işlemi başlatıldı...");
 
             try {
-                // DİKKAT: Artık dinamik URL kullanıyoruz (Render ile %100 uyumlu!)
                 const response = await fetch('/api/convert-batch', {
                     method: 'POST',
                     body: formData
@@ -286,7 +286,7 @@
             } finally {
                 convertBtn.disabled = false;
                 convertBtn.classList.remove('opacity-80', 'cursor-not-allowed');
-                btnText.textContent = "Dönüştürmeyi Başlat ve İndir";
+                btnText.textContent = "Dönüştürmeyi Başlat و İndir";
             }
         }
 
@@ -307,3 +307,4 @@
     </script>
 </body>
 </html>
+
