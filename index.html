@@ -21,10 +21,9 @@
 </head>
 <body class="bg-zinc-100 text-zinc-900 min-h-screen flex items-center justify-center p-4 relative overflow-x-hidden">
 
-    <!-- Sağ Üst Durum Bildirimleri (Toasts) - Mobilde ortalanır, masaüstünde sağ üstte kalır -->
+    <!-- Sağ Üst Durum Bildirimleri (Toasts) -->
     <div id="toastContainer" class="fixed top-4 left-4 right-4 sm:left-auto sm:right-5 sm:top-5 z-50 flex flex-col gap-2.5 max-w-sm pointer-events-none mx-auto sm:mx-0"></div>
 
-    <!-- Responsive Kart: Mobilde tam uyumlu, geniş ekranda maksimum konfor -->
     <div class="w-full max-w-md sm:max-w-xl bg-white border border-zinc-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_18px_40px_rgba(0,0,0,0.06)] relative">
         
         <div class="flex justify-center items-center mb-4 sm:mb-5">
@@ -125,7 +124,6 @@
             }
         }
 
-        // Sürükle Bırak Efektleri
         ['dragenter', 'dragover'].forEach(eventName => {
             dropZone.addEventListener(eventName, (e) => {
                 e.preventDefault();
@@ -250,7 +248,8 @@
             showToast("Dönüştürme işlemi başlatıldı...");
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/convert-batch', {
+                // DİKKAT: Artık dinamik URL kullanıyoruz (Render ile %100 uyumlu!)
+                const response = await fetch('/api/convert-batch', {
                     method: 'POST',
                     body: formData
                 });
